@@ -71,7 +71,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: C:\Users\FILIN\AppData\Local\Temp\tmp6mn_ews1.js
+// include: C:\Users\FILIN\AppData\Local\Temp\tmprw_ja99s.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -206,21 +206,21 @@ Module['FS_createPath']("/res", "shaders", true, true);
 
   })();
 
-// end include: C:\Users\FILIN\AppData\Local\Temp\tmp6mn_ews1.js
-// include: C:\Users\FILIN\AppData\Local\Temp\tmp6u0upsjy.js
+// end include: C:\Users\FILIN\AppData\Local\Temp\tmprw_ja99s.js
+// include: C:\Users\FILIN\AppData\Local\Temp\tmpi_85jgsl.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: C:\Users\FILIN\AppData\Local\Temp\tmp6u0upsjy.js
-// include: C:\Users\FILIN\AppData\Local\Temp\tmp41rcaiwc.js
+  // end include: C:\Users\FILIN\AppData\Local\Temp\tmpi_85jgsl.js
+// include: C:\Users\FILIN\AppData\Local\Temp\tmpdx0zamwc.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: C:\Users\FILIN\AppData\Local\Temp\tmp41rcaiwc.js
+  // end include: C:\Users\FILIN\AppData\Local\Temp\tmpdx0zamwc.js
 
 
 var arguments_ = [];
@@ -8789,15 +8789,15 @@ function checkIncomingModuleAPI() {
   ignoredModuleProp('onFree');
   ignoredModuleProp('onSbrkGrow');
 }
-function paste_js(callback,callback_data) { document.addEventListener('paste', (event) => { Module["ccall"]('emscripten_browser_clipboard_detail_paste_return', 'number', ['string', 'number', 'number'], [event.clipboardData.getData('text/plain'), callback, callback_data]); }); }
-function copy_js(callback,callback_data) { document.addEventListener('copy', (event) => { const content_ptr = Module["ccall"]('emscripten_browser_clipboard_detail_copy_return', 'number', ['number', 'number'], [callback, callback_data]); event.clipboardData.setData('text/plain', UTF8ToString(content_ptr)); event.preventDefault(); }); }
+function paste_js(callback,callback_data) { document.addEventListener('paste', (event) => { Module["ccall"]('paste_return', 'number', ['string', 'number', 'number'], [event.clipboardData.getData('text/plain'), callback, callback_data]); }); }
+function copy_js(callback,callback_data) { document.addEventListener('copy', (event) => { const content_ptr = Module["ccall"]('copy_return', 'number', ['number', 'number'], [callback, callback_data]); event.clipboardData.setData('text/plain', UTF8ToString(content_ptr)); event.preventDefault(); }); }
 function copy_async_js(content_ptr) { navigator.clipboard.writeText(UTF8ToString(content_ptr)); }
 function setupWebWindowResize() { Module.setWindowSize = function(width, height) { Module.ccall('setWindowSize', null, ['number', 'number'], [width, height]); }; Module.handleResize = function() { var canvas = document.getElementById('canvas'); if (!canvas) return; var dpr = 1; var width = Math.floor(canvas.clientWidth * dpr); var height = Math.floor(canvas.clientHeight * dpr); canvas.width = width; canvas.height = height; Module.setWindowSize(width, height); }; if (typeof window !== 'undefined') { window.addEventListener('resize', Module.handleResize); Module.handleResize(); } }
 function ImGui_ImplGlfw_EmscriptenOpenURL(url) { url = url ? UTF8ToString(url) : null; if (url) window.open(url, '_blank'); }
 
 // Imports from the Wasm binary.
-var _emscripten_browser_clipboard_detail_paste_return = Module['_emscripten_browser_clipboard_detail_paste_return'] = makeInvalidEarlyAccess('_emscripten_browser_clipboard_detail_paste_return');
-var _emscripten_browser_clipboard_detail_copy_return = Module['_emscripten_browser_clipboard_detail_copy_return'] = makeInvalidEarlyAccess('_emscripten_browser_clipboard_detail_copy_return');
+var _paste_return = Module['_paste_return'] = makeInvalidEarlyAccess('_paste_return');
+var _copy_return = Module['_copy_return'] = makeInvalidEarlyAccess('_copy_return');
 var _setWindowSize = Module['_setWindowSize'] = makeInvalidEarlyAccess('_setWindowSize');
 var _main = Module['_main'] = makeInvalidEarlyAccess('_main');
 var _fflush = makeInvalidEarlyAccess('_fflush');
@@ -8817,8 +8817,8 @@ var wasmMemory = makeInvalidEarlyAccess('wasmMemory');
 var wasmTable = makeInvalidEarlyAccess('wasmTable');
 
 function assignWasmExports(wasmExports) {
-  assert(typeof wasmExports['emscripten_browser_clipboard_detail_paste_return'] != 'undefined', 'missing Wasm export: emscripten_browser_clipboard_detail_paste_return');
-  assert(typeof wasmExports['emscripten_browser_clipboard_detail_copy_return'] != 'undefined', 'missing Wasm export: emscripten_browser_clipboard_detail_copy_return');
+  assert(typeof wasmExports['paste_return'] != 'undefined', 'missing Wasm export: paste_return');
+  assert(typeof wasmExports['copy_return'] != 'undefined', 'missing Wasm export: copy_return');
   assert(typeof wasmExports['setWindowSize'] != 'undefined', 'missing Wasm export: setWindowSize');
   assert(typeof wasmExports['main'] != 'undefined', 'missing Wasm export: main');
   assert(typeof wasmExports['fflush'] != 'undefined', 'missing Wasm export: fflush');
@@ -8834,8 +8834,8 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports['emscripten_stack_get_current'] != 'undefined', 'missing Wasm export: emscripten_stack_get_current');
   assert(typeof wasmExports['memory'] != 'undefined', 'missing Wasm export: memory');
   assert(typeof wasmExports['__indirect_function_table'] != 'undefined', 'missing Wasm export: __indirect_function_table');
-  _emscripten_browser_clipboard_detail_paste_return = Module['_emscripten_browser_clipboard_detail_paste_return'] = createExportWrapper('emscripten_browser_clipboard_detail_paste_return', 3);
-  _emscripten_browser_clipboard_detail_copy_return = Module['_emscripten_browser_clipboard_detail_copy_return'] = createExportWrapper('emscripten_browser_clipboard_detail_copy_return', 2);
+  _paste_return = Module['_paste_return'] = createExportWrapper('paste_return', 3);
+  _copy_return = Module['_copy_return'] = createExportWrapper('copy_return', 2);
   _setWindowSize = Module['_setWindowSize'] = createExportWrapper('setWindowSize', 2);
   _main = Module['_main'] = createExportWrapper('main', 2);
   _fflush = createExportWrapper('fflush', 1);
